@@ -1,4 +1,5 @@
 version: ’3.8’
+
 services:
   postgres:
     image: postgres:15
@@ -13,14 +14,14 @@ services:
     ports:
       - "5432:5432"
 
-pgadmin:
-  image: dpage/pgadmin4
-  container_name: my_pgadmin
-  restart: always
-  environment:
-    PGADMIN_DEFAULT_EMAIL: admin@admin.com
-    PGADMIN_DEFAULT_PASSWORD: admin123
-  ports:
-    - "8080:80"
-  depends_on:
-    - postgres
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: my_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
